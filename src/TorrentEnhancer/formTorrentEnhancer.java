@@ -22,11 +22,17 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class formTorrentEnhancer extends javax.swing.JFrame {
 
+    public String torrentHash;
+    
     /** Creates new form MiniBittorrentUI */
     public formTorrentEnhancer() {
         initComponents();
     }
 
+    public void Update() {
+        txtHash.setText(torrentHash);
+    }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -45,7 +51,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         fileOpenedLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtHash = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         log1 = new javax.swing.JTextArea();
@@ -89,10 +95,10 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
 
         jLabel4.setText("Hash:");
 
-        jTextField1.setName("txtHash"); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtHash.setName("txtHash"); // NOI18N
+        txtHash.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtHashActionPerformed(evt);
             }
         });
 
@@ -146,7 +152,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
                             .add(layout.createSequentialGroup()
                                 .add(jLabel4)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jTextField1))
+                                .add(txtHash))
                             .add(layout.createSequentialGroup()
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(layout.createSequentialGroup()
@@ -180,7 +186,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel4)
-                    .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(txtHash, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jLabel5)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -205,6 +211,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
+
     /**
      * Handles what happens when the open button is clicked
      * @param evt
@@ -221,8 +228,10 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
             // Starting the engine in a new background thread
             (engine = new StartEngine(file, log)).execute();
 
+            
             // Showing the name of the torrent file
             fileOpenedLabel.setText(file.getName());
+            txtHash.setText("Got Hash");
         }
         else {
             log.append("Open command cancelled by user." + "\n");
@@ -230,6 +239,8 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
 
     }//GEN-LAST:event_openButtonActionPerformed
 
+    
+    
     private void openButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_openButton1ActionPerformed
@@ -238,9 +249,9 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_openButton2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtHashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHashActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtHashActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -287,7 +298,6 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextArea log;
     private javax.swing.JTextArea log1;
@@ -296,6 +306,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
     private javax.swing.JButton openButton2;
     private javax.swing.JFileChooser torrentFileChooser;
     private javax.swing.JLabel torrentLabel;
+    private javax.swing.JTextField txtHash;
     // End of variables declaration//GEN-END:variables
 
     private File file;

@@ -1,3 +1,5 @@
+# TorrentEnchancer
+
 Modifies torrent files before loading them inot uTorrent. Adds trackers, changes name of tracker, and more
 
 WRITTEN IN JAVE, USING NETBEANS AND BITTORRENT API

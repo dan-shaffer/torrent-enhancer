@@ -175,7 +175,7 @@ public class MiniBittorrentUI extends javax.swing.JFrame {
             log.append("Opening: "+ file.getName() + "   Path: " + file.getAbsolutePath() + "\n");
 
             // Starting the engine in a new background thread
-            (engine = new StartEngine(file, log, progressBar, speedLabel)).execute();
+            (engine = new StartEngine(file, log)).execute();
 
             // Showing the name of the torrent file
             fileOpenedLabel.setText(file.getName());

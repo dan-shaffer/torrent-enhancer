@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
 import javax.swing.SwingWorker;
+import javax.swing.UIManager;
 
 /**
  * Class that serves as a way to communicate
@@ -38,7 +39,7 @@ public class StartEngine extends SwingWorker<Void, Object> {
      * @param jp JProgressBar
      * @param speedLabel JLabel
      */
-    public StartEngine(File file, JTextArea log, JProgressBar jp, JLabel speedLabel) {
+    public StartEngine(File file, JTextArea log) {
                     
             this.file = file;
             this.log = log;
@@ -46,6 +47,7 @@ public class StartEngine extends SwingWorker<Void, Object> {
             this.speedLabel = speedLabel;
         
     }
+
 
     /**
      * Starts a new thread in the background, for this case
@@ -73,8 +75,8 @@ public class StartEngine extends SwingWorker<Void, Object> {
                 //  log.append("Closing files\n");
             log.append(torrentfile.name.toString());
             System.out.println(torrentfile.info_hash_as_hex);
-            TextField txtHash = new TextField("blah");
-  
+         
+
 
             } else {
 //                System.err.println(

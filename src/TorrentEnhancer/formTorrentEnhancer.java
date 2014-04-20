@@ -101,6 +101,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         log1.setEditable(false);
         log1.setColumns(20);
         log1.setRows(5);
+        log1.setName("txtFiles"); // NOI18N
         jScrollPane2.setViewportView(log1);
 
         openButton1.setText("Disable");
@@ -218,7 +219,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
             log.append("Opening: "+ file.getName() + "   Path: " + file.getAbsolutePath() + "\n");
 
             // Starting the engine in a new background thread
-            (engine = new StartEngine(file, log, progressBar, speedLabel)).execute();
+            (engine = new StartEngine(file, log)).execute();
 
             // Showing the name of the torrent file
             fileOpenedLabel.setText(file.getName());

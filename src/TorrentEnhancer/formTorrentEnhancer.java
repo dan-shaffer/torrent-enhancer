@@ -68,7 +68,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         torrentFileChooser.setFileFilter(new TorrentFilter());
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MiniTorrent");
+        setTitle("Torrent Enhancer");
 
         openButton.setText("Open");
         openButton.addActionListener(new java.awt.event.ActionListener() {

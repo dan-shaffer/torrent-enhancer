@@ -10,6 +10,7 @@ import jBittorrentAPI.DownloadManager;
 import jBittorrentAPI.TorrentFile;
 import jBittorrentAPI.TorrentProcessor;
 import java.io.File;
+import java.util.*;
 
 /**
  *
@@ -17,14 +18,17 @@ import java.io.File;
  */
 public class TorrentParser {
     
-        private DownloadManager dm;
+    private DownloadManager dm;
     private TorrentProcessor tp;
-    private TorrentFile torrentfile;
+    public TorrentFile torrentfile;
     private File file;
     
-                  
+    public String TorrentHash;
+    public String TorrentName;
+    public ArrayList TorrentFiles;
             
     public TorrentParser(File file) {
+        
            this.file = file;
     }
   
@@ -32,8 +36,10 @@ public class TorrentParser {
             
         tp = new TorrentProcessor();
         torrentfile = tp.getTorrentFile(tp.parseTorrent(file));
-        System.out.println(torrentfile.name);
-        System.out.println(torrentfile.info_hash_as_hex);
+       // System.out.println(torrentfile.name);
+        TorrentHash = torrentfile.info_hash_as_hex;
+        TorrentName = torrentfile.saveAs;
+        TorrentFiles = torrentfile.name;
         return(null);
     }
 }

@@ -348,6 +348,6 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private File file;
-     private StartEngine engine;
+    // private StartEngine engine;
 
 }

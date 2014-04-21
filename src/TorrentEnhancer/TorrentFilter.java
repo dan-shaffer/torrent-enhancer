@@ -15,7 +15,7 @@ import javax.swing.filechooser.*;
 public class TorrentFilter extends FileFilter {
     
     /**
-     * Accepts alle directories and torrent files
+     * Accepts all directories and torrent files
      * @param f File
      * @return boolean true if there is a directory or .torrent to show
      */

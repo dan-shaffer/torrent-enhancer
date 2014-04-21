@@ -23,6 +23,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class formTorrentEnhancer extends javax.swing.JFrame {
 
     public String torrentHash;
+    private TorrentParser Parser;
     
     /** Creates new form MiniBittorrentUI */
     public formTorrentEnhancer() {
@@ -226,8 +227,9 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
             log.append("Opening: "+ file.getName() + "   Path: " + file.getAbsolutePath() + "\n");
 
             // Starting the engine in a new background thread
-            (engine = new StartEngine(file, log)).execute();
-
+            //(engine = new StartEngine(file, log)).execute();
+                
+            (Parser = new TorrentParser(file)).Parse();
             
             // Showing the name of the torrent file
             fileOpenedLabel.setText(file.getName());

@@ -28,7 +28,7 @@ import java.util.*;
 
 /**
  * A set of utility methods to encode a Map into a bencoded array of byte.
- * integer are represented as Long, String as byte[], dictionnaries as Map, and list as List.
+ * integer are represented as Long, String as byte[], dictionaries as Map, and list as List.
  *
  * @author  TdC_VgA
  */

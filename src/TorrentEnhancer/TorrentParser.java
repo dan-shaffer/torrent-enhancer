@@ -18,7 +18,7 @@ import java.util.*;
  */
 public class TorrentParser {
     
-    private DownloadManager dm;
+
     private TorrentProcessor tp;
     public TorrentFile torrentfile;
     private File file;
@@ -26,20 +26,25 @@ public class TorrentParser {
     public String TorrentHash;
     public String TorrentName;
     public ArrayList TorrentFiles;
-            
+    public java.util.Map parse;    
     public TorrentParser(File file) {
         
            this.file = file;
     }
   
     public Void Parse() {
-            
+           
         tp = new TorrentProcessor();
         torrentfile = tp.getTorrentFile(tp.parseTorrent(file));
        // System.out.println(torrentfile.name);
         TorrentHash = torrentfile.info_hash_as_hex;
         TorrentName = torrentfile.saveAs;
         TorrentFiles = torrentfile.name;
+  
         return(null);
     }
+    
+    
+    
 }
+

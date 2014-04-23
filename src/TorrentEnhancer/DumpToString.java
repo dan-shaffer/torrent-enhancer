@@ -8,8 +8,8 @@ package TorrentEnhancer;
 
 import java.lang.reflect.Field;
 /**
- *
- * @author Usurper
+ *  Found on internet
+ * https://code.google.com/p/dump-to-string/source/browse/src/main/java/com/borntojava/dts/DumpToString.java
  */
 public class DumpToString {
 

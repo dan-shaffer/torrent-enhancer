@@ -11,6 +11,7 @@
 
 package TorrentEnhancer;
 
+import jBittorrentAPI.*;
 import java.io.File;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
@@ -60,7 +61,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        exitButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         listFiles = new javax.swing.JList();
 
@@ -133,10 +134,10 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
 
         jButton1.setText("Change");
 
-        exitButton1.setText("Save");
-        exitButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButton1ActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -188,7 +189,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(exitButton)
                 .add(40, 40, 40)
-                .add(exitButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(btnSave, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(100, 100, 100))
         );
         layout.setVerticalGroup(
@@ -223,7 +224,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
                 .add(9, 9, 9)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(exitButton)
-                    .add(exitButton1))
+                    .add(btnSave))
                 .addContainerGap())
         );
 
@@ -289,9 +290,11 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void exitButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_exitButton1ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        TorrentProcessor TorProc = null;
+        System.out.println( TorProc.getTorrent(Parser.torrentfile) );
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
 
@@ -326,8 +329,8 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton exitButton;
-    private javax.swing.JButton exitButton1;
     private javax.swing.JLabel fileOpenedLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;

@@ -91,8 +91,19 @@ public class TorrentProcessor {
     public TorrentFile getTorrentFile(Map m){
         if(m == null)
             return null;
-        if(m.containsKey("announce")) // mandatory key
+        if(m.containsKey("announce")) { // mandatory key
             this.torrent.announceURL = new String((byte[]) m.get("announce"));
+            System.out.println("ANNOUNCE LIST");
+           
+            byte[] an;
+            an = (byte[]) m.get("announce-list");
+            
+           
+            
+            //String s = new String((StringBuilder) an);
+            
+            System.out.println(an.toString());
+        }
         else
             return null;
         if(m.containsKey("comment")) // optional key

@@ -26,7 +26,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
 
     public String torrentHash;
     private TorrentParser Parser;
-    
+    public DumpToString dumper;
     /** Creates new form MiniBittorrentUI */
     public formTorrentEnhancer() {
         initComponents();
@@ -57,13 +57,16 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         txtHash = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         openButton1 = new javax.swing.JButton();
-        openButton2 = new javax.swing.JButton();
+        btnTest1 = new javax.swing.JButton();
         txtName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         listFiles = new javax.swing.JList();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        listTrackers = new javax.swing.JList();
 
         torrentFileChooser.setAcceptAllFileFilterUsed(false);
         torrentFileChooser.setFileFilter(new TorrentFilter());
@@ -116,10 +119,10 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
             }
         });
 
-        openButton2.setText("Enable");
-        openButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnTest1.setText("Test");
+        btnTest1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openButton2ActionPerformed(evt);
+                btnTest1ActionPerformed(evt);
             }
         });
 
@@ -144,6 +147,11 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         listFiles.setToolTipText("");
         jScrollPane3.setViewportView(listFiles);
 
+        jLabel7.setText("Trackers:");
+
+        listTrackers.setToolTipText("");
+        jScrollPane4.setViewportView(listTrackers);
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,14 +159,6 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(26, 26, 26)
-                        .add(openButton)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(torrentLabel)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(fileOpenedLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 335, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(21, Short.MAX_VALUE))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createSequentialGroup()
@@ -172,25 +172,38 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
                                         .add(txtHash, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 264, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .add(jButton1))))
-                            .add(jLabel5)
-                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 430, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(jLabel5))
                         .add(0, 0, Short.MAX_VALUE))
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .add(26, 26, 26)
+                                .add(openButton)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(torrentLabel)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(fileOpenedLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 335, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 484, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                .add(layout.createSequentialGroup()
+                                    .add(jLabel7)
+                                    .add(289, 289, 289)
+                                    .add(btnTest1)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                    .add(openButton1))
+                                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 476, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .add(layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(jScrollPane3)
-                        .add(158, 158, 158))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(0, 0, Short.MAX_VALUE)
-                        .add(openButton2)
-                        .add(18, 18, 18)
-                        .add(openButton1)
-                        .add(162, 162, 162))))
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(exitButton)
-                .add(40, 40, 40)
-                .add(btnSave, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(100, 100, 100))
+                        .addContainerGap(156, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(exitButton)
+                        .add(40, 40, 40)
+                        .add(btnSave, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(100, 100, 100))
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 430, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -211,15 +224,18 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
                     .add(jButton1))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jLabel5)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 160, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 79, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(openButton2)
-                    .add(openButton1))
+                    .add(jLabel7)
+                    .add(openButton1)
+                    .add(btnTest1))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
                 .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 22, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(2, 2, 2)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(9, 9, 9)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -265,6 +281,14 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
                   listModel.addElement(item.toString());
             }
             listFiles.setModel(listModel);
+            System.out.println(Parser.torrentfile.announceURL.toCharArray());
+            
+            
+               
+                
+               
+        //       System.out.println(dumper.dump(Parser));
+                        
         }
         else {
             log.append("Open command cancelled by user." + "\n");
@@ -278,9 +302,9 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_openButton1ActionPerformed
 
-    private void openButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_openButton2ActionPerformed
+    private void btnTest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTest1ActionPerformed
+    
+    }//GEN-LAST:event_btnTest1ActionPerformed
 
     private void txtHashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHashActionPerformed
         // TODO add your handling code here:
@@ -330,6 +354,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnTest1;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel fileOpenedLabel;
     private javax.swing.JButton jButton1;
@@ -337,13 +362,15 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JList listFiles;
+    private javax.swing.JList listTrackers;
     private javax.swing.JTextArea log;
     private javax.swing.JButton openButton;
     private javax.swing.JButton openButton1;
-    private javax.swing.JButton openButton2;
     private javax.swing.JFileChooser torrentFileChooser;
     private javax.swing.JLabel torrentLabel;
     private javax.swing.JTextField txtHash;
@@ -352,5 +379,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
 
     private File file;
     // private StartEngine engine;
+
+
 
 }

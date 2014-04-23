@@ -281,13 +281,13 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
                   listModel.addElement(item.toString());
             }
             listFiles.setModel(listModel);
-            System.out.println(Parser.torrentfile.announceURL.toCharArray());
+            System.out.println(Parser.torrentfile.announceURL);
             
             
                
                 
                
-        //       System.out.println(dumper.dump(Parser));
+ //            System.out.println(dumper.dump(Parser));
                         
         }
         else {

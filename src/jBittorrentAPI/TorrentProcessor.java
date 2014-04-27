@@ -38,10 +38,13 @@
 package jBittorrentAPI;
 
 import java.io.*;
-import java.util.*;
-import java.nio.ByteBuffer;
-import java.net.URL;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.ByteBuffer;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -95,15 +98,28 @@ public class TorrentProcessor {
             this.torrent.announceURL = new String((byte[]) m.get("announce"));
             System.out.println("ANNOUNCE LIST");
            
-            byte[] an;
-            an = (byte[]) m.get("announce-list");
+            ArrayList an = new ArrayList(); 
+            an =  (ArrayList) m.get("announce-list");
             
+            
+            
+   //         String announcelist = new String ((byte[]) m.get("announce-list"));
            
             
             //String s = new String((StringBuilder) an);
-            
-            System.out.println(an.toString());
-        }
+        //  new String((byte[]) m.get("announce"));
+            for(Object tr : an) {
+               System.out.println(tr);
+               
+               byte[] line = null;
+               String test = null;
+                test = tr.toString();
+                line = test.getBytes();
+                String value;
+                value = byteArrayToString(line);
+         // line = new String( (String) tr);
+              System.out.println(value); 
+            }        }
         else
             return null;
         if(m.containsKey("comment")) // optional key
@@ -454,6 +470,15 @@ public class TorrentProcessor {
 
     public boolean getTorrent(TorrentFile torrentfile) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String byteArrayToString(byte[] in) {
+        char out[] = new char[in.length * 2];
+        for (int i = 0; i < in.length; i++) {
+            out[i * 2] = "0123456789ABCDEF".charAt((in[i] >> 4) & 15);
+            out[i * 2 + 1] = "0123456789ABCDEF".charAt(in[i] & 15);
+        }
+        return new String(out);
     }
 
 }

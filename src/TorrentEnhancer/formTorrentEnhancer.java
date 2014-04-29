@@ -17,6 +17,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import java.io.UnsupportedEncodingException;
 
 /**
  * GUI object of MiniTorrent application
@@ -279,6 +280,7 @@ public class formTorrentEnhancer extends javax.swing.JFrame {
             DefaultListModel listModel = new DefaultListModel();
             for (Object item : Parser.TorrentFiles ) {
                   listModel.addElement(item.toString());
+                  
             }
             listFiles.setModel(listModel);
             System.out.println(Parser.torrentfile.announceURL);
